@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>User Login</h4>
+                </div>
+                <div class="card-body">
+                    {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+
+                    {{ form_start(form, {'attr': {'data-turbo': 'false'}}) }}
+                    <div class="mb-3">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email) }}
+                        <div class="text-danger">{{ form_errors(form.email) }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_label(form.password) }}
+                        {{ form_widget(form.password) }}
+                        <div class="text-danger">{{ form_errors(form.password) }}</div>
+                    </div>
+
+                    <div class="mb-3">
+                        {{ form_widget(form.submit) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

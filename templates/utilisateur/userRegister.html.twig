@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>User Registration</h4>
+                </div>
+                <div class="card-body">
+                    {{ form_start(f, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+                    <div class="mb-3">
+                        {{ form_label(f.fullName, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.fullName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form_label(f.email, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form_label(f.password, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.password, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form_widget(f.submit, {'attr': {'class': 'btn btn-primary w-100'}}) }}
+                    </div>
+                    {{ form_end(f) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Ajouter une remboursement</h4>
+                </div>
+                <div class="card-body">
+                    {{ form_start(f, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate', 'data-turbo': 'false'}}) }}
+
+                    <div class="mb-3">
+                        {{ form_label(f.amount, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.amount, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form_label(f.reason, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.reason, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form_label(f.status, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.status, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(f.resquestAt, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.resquestAt, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_label(f.utilisateur, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(f.utilisateur, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        {{ form_widget(f.submit, {'attr': {'class': 'btn btn-primary w-100'}}) }}
+                    </div>
+                    {{ form_end(f) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
