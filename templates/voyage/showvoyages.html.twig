@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Voyages</title>
+    <style>
+        /* Basic styling for the table */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f8f8f8;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .add-button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .add-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Voyages</h1>
+    <table>
+        <tr>
+            
+            <th>Departure Location</th>
+            <th>Destination Location</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Status</th>
+            <th>Vehicule</th>
+            <th>Actions</th>
+        </tr>
+        {% for voyage in voyages %}
+        <tr>
+           
+            <td>{{ voyage.DepartureLocation }}</td>
+            <td>{{ voyage.DestinationLocation }}</td>
+            <td>{{ voyage.StartDate|date('Y-m-d') }}</td>
+            <td>{{ voyage.EndDate|date('Y-m-d') }}</td>
+            <td>{{ voyage.Status }}</td>
+            <td>{{ voyage.Vehicule.Type }} ({{ voyage.Vehicule.Model }})</td>
+            <td>
+                <a href="{{ path('app_voyage_edit', {'id': voyage.id}) }}">
+                    <button>Edit</button>
+                </a>
+                <a href="{{ path('app_voyage_delete', {'id': voyage.id}) }}">
+                    <button>Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>

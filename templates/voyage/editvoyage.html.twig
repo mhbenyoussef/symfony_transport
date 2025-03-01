@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Voyage</title>
+    <style>
+        /* Basic styling for the form */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .form-actions button[type="submit"] {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .form-actions button[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .form-actions a {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .form-actions a:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Voyage</h1>
+    <div class="form-container">
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_widget(form.DepartureLocation, {'attr': {'placeholder': 'Enter departure location'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.DestinationLocation, {'attr': {'placeholder': 'Enter destination location'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.StartDate, {'attr': {'placeholder': 'Select start date'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.EndDate, {'attr': {'placeholder': 'Select end date'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.Status, {'attr': {'placeholder': 'Select voyage status'}}) }}
+            </div>
+            <div class="form-actions">
+                <button type="submit">Update</button>
+                <a href="{{ path('app_voyages') }}">Cancel</a>
+            </div>
+        {{ form_end(form) }}
+    </div>
+</body>
+</html>

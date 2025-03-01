@@ -47,7 +47,7 @@ final class UtilisateurController extends AbstractController
             $user->setPassword($hashedPassword);
             $emi->persist($user);
             $emi->flush();
-            return $this->redirectToRoute('dashboard');
+            return $this->redirectToRoute('user_login');
         }
         return $this->render('utilisateur/userRegister.html.twig', ['f' => $form->createView()]);
     }
